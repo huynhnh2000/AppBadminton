@@ -1,4 +1,3 @@
-
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:badminton_management_1/app_local.dart';
@@ -22,16 +21,17 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:month_picker_dialog/month_picker_dialog.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class HomeStudentView extends StatefulWidget{
+class HomeStudentView extends StatefulWidget {
   const HomeStudentView({super.key});
 
   @override
   State<HomeStudentView> createState() => _HomeStudentView();
 }
 
-class _HomeStudentView extends State<HomeStudentView> with SingleTickerProviderStateMixin{
-
+class _HomeStudentView extends State<HomeStudentView>
+    with SingleTickerProviderStateMixin {
   WeatherControll weatherControll = WeatherControll();
   final currentUser = MyCurrentUser();
   final currentWeather = MyCurrentWather();
@@ -44,7 +44,8 @@ class _HomeStudentView extends State<HomeStudentView> with SingleTickerProviderS
   ListLearningprocessProvider lpProvider = ListLearningprocessProvider();
 
   Future<void> initializeData() async {
-    lpProvider = Provider.of<ListLearningprocessProvider>(context, listen: false);
+    lpProvider =
+        Provider.of<ListLearningprocessProvider>(context, listen: false);
     await lpProvider.setListWithStudentId(currentUser.id!);
     await lpProvider.setYoutubeList();
     lpProvider.setThisMonthList(context);
@@ -52,16 +53,13 @@ class _HomeStudentView extends State<HomeStudentView> with SingleTickerProviderS
     lpProvider.populateDateLists(lpProvider.thisMonthList);
   }
 
-  Future<void> chooseDate() async{
+  Future<void> chooseDate() async {
     DateFormat formated = DateFormat('yyyy-MM-dd');
-    DateTime dateStart = formated.parse(currentUser.startDay??"");
+    DateTime dateStart = formated.parse(currentUser.startDay ?? "");
 
     DateTime? choosed = await showCustomMonthPicker(
-      context: context,
-      dateStart: dateStart,
-      dateEnd: DateTime.now()
-    );
-    if(choosed!=null){
+        context: context, dateStart: dateStart, dateEnd: DateTime.now());
+    if (choosed != null) {
       setState(() {
         dateChoosed = DateFormat('MM/yyyy').format(choosed);
       });
@@ -69,38 +67,30 @@ class _HomeStudentView extends State<HomeStudentView> with SingleTickerProviderS
     }
   }
 
-  Future<DateTime?> showCustomMonthPicker(
-    {
-      context,
-      dateStart,
-      dateEnd
-    }
-  ) async{
+  Future<DateTime?> showCustomMonthPicker({context, dateStart, dateEnd}) async {
     DateTime? result = await showMonthPicker(
       context: context,
       initialDate: dateStart,
       firstDate: dateStart,
       lastDate: dateEnd,
       monthPickerDialogSettings: MonthPickerDialogSettings(
-        headerSettings: const PickerHeaderSettings(
-          headerBackgroundColor: AppColors.secondary
-        ),
-        buttonsSettings: PickerButtonsSettings(
-          unselectedMonthsTextColor: AppColors.secondary,
-          unselectedYearsTextColor: AppColors.secondary,
-          monthTextStyle: AppTextstyle.contentBlueSmallStyle.copyWith(fontSize: AppMainsize.mainWidth(context)/30),
-          yearTextStyle: AppTextstyle.subTitleStyle.copyWith(fontSize: AppMainsize.mainWidth(context)/40),
-          selectedDateRadius: 10,
-          selectedMonthBackgroundColor: AppColors.secondary,
-          selectedMonthTextColor: Colors.white
-        )
-      ),
+          headerSettings: const PickerHeaderSettings(
+              headerBackgroundColor: AppColors.secondary),
+          buttonsSettings: PickerButtonsSettings(
+              unselectedMonthsTextColor: AppColors.secondary,
+              unselectedYearsTextColor: AppColors.secondary,
+              monthTextStyle: AppTextstyle.contentBlueSmallStyle
+                  .copyWith(fontSize: AppMainsize.mainWidth(context) / 30),
+              yearTextStyle: AppTextstyle.subTitleStyle
+                  .copyWith(fontSize: AppMainsize.mainWidth(context) / 40),
+              selectedDateRadius: 10,
+              selectedMonthBackgroundColor: AppColors.secondary,
+              selectedMonthTextColor: Colors.white)),
       confirmWidget: Text("OK", style: AppTextstyle.contentGreySmallStyle),
       cancelWidget: Text("Cancel", style: AppTextstyle.contentGreySmallStyle),
     );
     return result;
   }
-
 
   @override
   void initState() {
@@ -112,28 +102,24 @@ class _HomeStudentView extends State<HomeStudentView> with SingleTickerProviderS
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: HomeHeaderView(body: _body(context))
-    );
+    return Scaffold(body: HomeHeaderView(body: _body(context)));
   }
 
   Widget _body(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-
           Container(
             width: AppMainsize.mainWidth(context),
             height: AppMainsize.mainHeight(context),
             color: AppColors.pageBackground,
           ),
-
           Container(
-            width: AppMainsize.mainWidth(context),
-            height: AppMainsize.mainHeight(context),
-            padding: const EdgeInsets.all(10),
-            child: Scrollbar(
-              child: SingleChildScrollView(
+              width: AppMainsize.mainWidth(context),
+              height: AppMainsize.mainHeight(context),
+              padding: const EdgeInsets.all(10),
+              child: Scrollbar(
+                  child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 physics: const ScrollPhysics(),
                 child: Column(
@@ -144,10 +130,7 @@ class _HomeStudentView extends State<HomeStudentView> with SingleTickerProviderS
                     _sectionVideoList(),
                   ],
                 ),
-              )
-            )
-          )
-
+              )))
         ],
       ),
     );
@@ -155,96 +138,144 @@ class _HomeStudentView extends State<HomeStudentView> with SingleTickerProviderS
 
   Widget _sectionWelcome() {
     return Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: AppMainsize.mainWidth(context),
-            color: AppColors.pageBackground,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: AppMainsize.mainWidth(context),
-                  child: const SliderStudent(),
-                ),
-                const SizedBox(height: 10),
-                firstParagraph(context),
-                const SizedBox(height: 10),
-                secondParagraph(context),
-                const SizedBox(height: 20),
-                Center(
-                  child: Container(
-                    width: AppMainsize.mainWidth(context) - 100,
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: AppColors.primary,
-                    ),
-                    child: Center(
-                      child: Text(
-                        AppLocalizations.of(context).translate("vision_purpose"),
-                        style: AppTextstyle.mainWhiteTitleStyle,
-                        textAlign: TextAlign.center,
-                      ),
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          width: AppMainsize.mainWidth(context),
+          color: AppColors.pageBackground,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: AppMainsize.mainWidth(context),
+                child: const SliderStudent(),
+              ),
+              const SizedBox(height: 10),
+              firstParagraph(context),
+              const SizedBox(height: 10),
+              secondParagraph(context),
+              const SizedBox(height: 20),
+              Center(
+                child: Container(
+                  width: AppMainsize.mainWidth(context) - 100,
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: AppColors.primary,
+                  ),
+                  child: Center(
+                    child: Text(
+                      AppLocalizations.of(context).translate("vision_purpose"),
+                      style: AppTextstyle.mainWhiteTitleStyle,
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
-                thirdParagraph(context),
-                const SizedBox(height: 10),
-                fourthParagraph(context),
-                const SizedBox(height: 10),
-                fifthParagraph(context),
-                const SizedBox(height: 30),
-                
-              ],
-            ),
+              ),
+              const SizedBox(height: 20),
+              thirdParagraph(context),
+              const SizedBox(height: 10),
+              fourthParagraph(context),
+              const SizedBox(height: 10),
+              fifthParagraph(context),
+              const SizedBox(height: 30),
+              Center(
+                child: _buttonAlbum(context),
+              ),
+              const SizedBox(height: 30),
+            ],
           ),
-        ],
-      );
+        ),
+      ],
+    );
   }
 
+  Widget _buttonAlbum(BuildContext context) {
+    return GestureDetector(
+      onTap: () async {
+        final url = currentUser.linkURL;
+        if (url != null && await canLaunchUrl(Uri.parse(url))) {
+          await launchUrl(Uri.parse(url));
+        } else {
+          _showErrorDialog(context); // Hiển thị hộp thoại thông báo
+        }
+      },
+      child: Container(
+        width: AppMainsize.mainWidth(context) - 100,
+        height: 70,
+        decoration: BoxDecoration(
+          color: AppColors.primary,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Center(
+          child: Text(
+            AppLocalizations.of(context).translate("collection_img"),
+            style: AppTextstyle.subWhiteTitleStyle,
+          ),
+        ),
+      ),
+    );
+  }
+
+// Hàm hiển thị hộp thoại thông báo khi không tìm thấy URL
+  void _showErrorDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Lỗi"),
+          content: Text("Không thể mở đường link! Vui lòng kiểm tra lại."),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Đóng hộp thoại
+              },
+              child: Text("OK"),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   Widget _sectionVideoList() {
     return Container(
+      width: AppMainsize.mainWidth(context),
+      padding: EdgeInsets.only(left: 10, right: 10, bottom: footerTabBar),
+      color: AppColors.pageBackground,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
             width: AppMainsize.mainWidth(context),
-            padding: EdgeInsets.only(left: 10, right: 10, bottom: footerTabBar),
-            color: AppColors.pageBackground,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-
-                SizedBox(
-                  width: AppMainsize.mainWidth(context),
-                  child: Text(
-                  AppLocalizations.of(context).translate("study_process"),
-                    style: AppTextstyle.mainTitleStyle.copyWith(color: AppColors.secondary, fontSize: 30),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                const SizedBox(height: 30),
-
-                _thisMonthListWidget(context),
-                const SizedBox(height: 30),
-                
-                Text(
-                  AppLocalizations.of(context).translate("another_month"),
-                  style: AppTextstyle.mainTitleStyle,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                const SizedBox(height: 10),
-                _chooseDateButton(context),
-                const ListVideoLearningprocess(),
-              ],
+            child: Text(
+              AppLocalizations.of(context).translate("study_process"),
+              style: AppTextstyle.mainTitleStyle
+                  .copyWith(color: AppColors.secondary, fontSize: 30),
+              textAlign: TextAlign.center,
             ),
-          );
+          ),
+          const SizedBox(height: 30),
+          _thisMonthListWidget(context),
+          const SizedBox(height: 30),
+          Text(
+            AppLocalizations.of(context).translate("another_month"),
+            style: AppTextstyle.mainTitleStyle,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+          const SizedBox(height: 10),
+          _chooseDateButton(context),
+          const ListVideoLearningprocess(),
+        ],
+      ),
+    );
   }
 
-  Widget _thisMonthListWidget(BuildContext context){
+  Widget _thisMonthListWidget(BuildContext context) {
     return Consumer<ListLearningprocessProvider>(
       builder: (context, value, child) {
         return Shimmer(
@@ -255,16 +286,13 @@ class _HomeStudentView extends State<HomeStudentView> with SingleTickerProviderS
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                
                 Text(
                   AppLocalizations.of(context).translate("this_month"),
                   style: AppTextstyle.mainTitleStyle,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
-
                 _buildLearningProcessList(context)
-
               ],
             ),
           ),
@@ -280,26 +308,27 @@ class _HomeStudentView extends State<HomeStudentView> with SingleTickerProviderS
           width: AppMainsize.mainWidth(context),
           color: AppColors.pageBackground,
           child: SafeArea(
-              child: ListView(
-                  scrollDirection: Axis.vertical,
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  children: [
-                    if (value.todayLst.isNotEmpty) 
-                      _buildSection(context, "today", value.todayLst),
-                    if (value.yesterdayLst.isNotEmpty) 
-                      _buildSection(context, "yesterday", value.yesterdayLst),
-                    if (value.createdLst.isNotEmpty) 
-                      _buildSection(context, "created", value.createdLst),
-                  ],
-                ),
+            child: ListView(
+              scrollDirection: Axis.vertical,
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              children: [
+                if (value.todayLst.isNotEmpty)
+                  _buildSection(context, "today", value.todayLst),
+                if (value.yesterdayLst.isNotEmpty)
+                  _buildSection(context, "yesterday", value.yesterdayLst),
+                if (value.createdLst.isNotEmpty)
+                  _buildSection(context, "created", value.createdLst),
+              ],
             ),
+          ),
         );
       },
     );
   }
 
-  Widget _buildSection(BuildContext context, String titleKey, List<MyLearningProcess> list) {
+  Widget _buildSection(
+      BuildContext context, String titleKey, List<MyLearningProcess> list) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -326,30 +355,36 @@ class _HomeStudentView extends State<HomeStudentView> with SingleTickerProviderS
     );
   }
 
-  Widget _chooseDateButton(BuildContext context){
+  Widget _chooseDateButton(BuildContext context) {
     return Consumer<ListLearningprocessProvider>(
       builder: (context, value, child) {
         return GestureDetector(
-          onTap: value.isLoading?null:
-          () async{
-            await chooseDate();
-          },
+          onTap: value.isLoading
+              ? null
+              : () async {
+                  await chooseDate();
+                },
           child: Container(
             width: AppMainsize.mainWidth(context),
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: AppColors.secondary,
-              borderRadius: BorderRadius.circular(20)
-            ),
+                color: AppColors.secondary,
+                borderRadius: BorderRadius.circular(20)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  dateChoosed==""?"":"${AppLocalizations.of(context).translate("month")} $dateChoosed", 
+                  dateChoosed == ""
+                      ? ""
+                      : "${AppLocalizations.of(context).translate("month")} $dateChoosed",
                   style: AppTextstyle.subWhiteTitleStyle,
                 ),
-                const Icon(Icons.arrow_drop_down_rounded, color: Colors.white, size: 45,)
+                const Icon(
+                  Icons.arrow_drop_down_rounded,
+                  color: Colors.white,
+                  size: 45,
+                )
               ],
             ),
           ),
@@ -357,5 +392,4 @@ class _HomeStudentView extends State<HomeStudentView> with SingleTickerProviderS
       },
     );
   }
-
 }

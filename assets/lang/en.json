@@ -1,154 +1,156 @@
 {
-    "wellcome_back": "Welcome back",
-    "wellcome_home": "Welcome",
-  
-    "title_name": "David Education",
-  
-    "vision_purpose": "Vision and Mission",
-  
-    "wellcome_title": "Welcome dear parents and students to the sports academy",
-  
-    "wellcome_content_1_1": "As technology advances, people procrastinate more, move less, and have fewer meaningful connections with themselves and others around them.",
-    "wellcome_content_1_2": "procrastinate, move less",
-    "wellcome_content_1_3": "fewer meaningful connections",
-  
-    "wellcome_content_2_1": "For that reason, David Education Academy was created with the mission of providing a space for the younger generation to improve their health, build character, and nurture wholesome dreams. David will be like a second home for children after school, allowing them to have a meaningful childhood and develop holistically in body, mind, and spirit.",
-    "wellcome_content_2_2": "improve health, build character, and nurture wholesome dreams",
-    "wellcome_content_2_3": "body, mind, and spirit",
-  
-    "wellcome_content_3_1": "Our vision is to become Vietnam's leading badminton academy for children, pioneering the Mindful Badminton model - Training Skills, Building Character.",
-    "wellcome_content_3_2": "Vietnam's leading badminton academy for children",
-  
-    "wellcome_content_4_1": "Thank you, dear parents and students, for trusting and accompanying David Education in realizing this vision.",
-  
-    "navigate_home": "Go to homepage",
-  
-    "study_process": "Learning process",
-  
-    "hint_search": "Search",
-    "save_rollcall": "Save attendance",
-    "title": "Title",
-  
-    "title_video": "Video title",
-    "title_note": "Comment title",
-  
-    "in_class": "Present in class",
-    "out_class": "Absent from class",
-  
-    "in_rollcall": "Attendance saved",
-    "out_rollcall": "Attendance not saved",
-  
-    "tap_change_phone": "Tap to change phone number",
-    "tap_change_email": "Tap to change email",
-  
-    "today": "Today",
-    "yesterday": "Yesterday",
-    "created": "Created",
-  
-    "month": "Month",
-    "week": "Week",
-  
-    "this_month": "Current month",
-    "another_month": "Other months",
-  
-    "month_1": "Jan",
-    "month_2": "Feb",
-    "month_3": "Mar",
-    "month_4": "Apr",
-    "month_5": "May",
-    "month_6": "Jun",
-    "month_7": "Jul",
-    "month_8": "Aug",
-    "month_9": "Sep",
-    "month_10": "Oct",
-    "month_11": "Nov",
-    "month_12": "Dec",
-  
-    "seemore": "See more",
-  
-    "setting_notify": "Notification settings",
-    "setting_language": "Language settings",
-    "setting_policy": "Privacy policy",
-    "setting_change_password": "Change password",
-    "setting_history_rollcall": "Attendance history",
-    "setting_update_birthday": "Update birthday",
-  
-    "warning_logout": "Are you sure you want to log out?",
-    "warning_tokenout": "Your session has expired, please log in again",
-  
-    "confirm_info": "Confirm information",
-  
-    "you_rollcall_atday": "Marked attendance on",
-    "you_rollcall_attime": "At",
-  
-    "update_phone": "Update phone number",
-    "update_email": "Update email",
-    "update_password": "Update password",
-  
-    "learningprocess_title": "Comment for",
-    "learningprocess_comment": "Comment",
-    "learningprocess_url": "Add video link (YouTube Link)",
-    "learningprocess_publish": "Publish",
-    "learningprocess_save": "Save comment",
-    "learningprocess_success": "Comment saved successfully",
-    "learningprocess_error": "Failed to save comment",
-    "learningprocess_newest": "Latest comment",
-    "learningprocess_video": "Videos commented for you",
-  
-    "rollcall": "Attendance",
-    "rollcall_success": "You have marked attendance today",
-    "rollcall_fail": "You have not marked attendance today",
-    "rollcall_loading": "Please wait as we verify your attendance",
-    "rollcall_check_save": "Do you want to save the list to the system?",
-    "rollcall_student": "Student attendance",
-    "rollcall_coach": "View coach attendance",
-    "rollcall_check_save_local": "Currently offline, the list will be saved locally. You can try again when connected.",
-  
-    "select_language": "Please select a language",
-    "select_input_auth": "Please enter the required information for us to verify you",
-    "select_input_newpass": "Please enter your new password",
-  
-    "summary_tuitions": "Total tuition paid",
-    "summary_months": "Total months attended",
-    "summary_thismonth": "This month's total",
-    "summary_see_option": "See your tuition summary",
-    "statistic_tuitions": "Tuition summary",
-    "statistic_tuitions_history": "Payment history",
-  
-    "empty_list": "Empty list",
-    "empty_sublist": "No items in the list",
-  
-    "sort_list": "Sort list",
-    "sort_all": "All",
-    "sort_newest": "Newest",
-    "sort_oldest": "Oldest",
-  
-    "success_update": "Update successful",
-    "success_login": "Login successful",
-    "success_save": "Save successful",
-  
-    "email_old": "Old email",
-    "email_new": "New email",
-  
-    "phone_old": "Old phone number",
-    "phone_new": "New phone number",
-  
-    "error_login": "An error occurred while trying to log you in. Please try again later.",
-    "error_emailpass": "Incorrect login information. Please check again.",
-    "error_rollcall": "Attendance failed. Please try again.",
-    "error_rollcall_notatwork": "You are not at the location we marked. Please try again after arriving.",
-    "error_data": "Data retrieval error. Please try again later.",
-    "error_update": "Update failed. Please try again later.",
-    "error_timeout": "Timeout occurred. Please try again.",
-    "error_retry_failed": "An error occurred while trying to add data. Please try again later.",
-    "error_phone_type": "Invalid phone number. Please re-enter.",
-    "error_email_type": "Invalid email. Please re-enter.",
-    "error_notsame_password": "Passwords must match.",
-    "error_weak_password": "Weak password. Please ensure the password has at least 8 characters, including uppercase, lowercase, numbers, and special characters.",
-    "error_empty_inputlp": "Comment cannot be empty.",
-    "error_connect_lost": "No network connection detected. Please try again when connected.",
-    "error_dublicate_phone": "Phone number already registered. Please use another number.",
-    "error_dublicate_email": "Email already registered. Please use another email.",
-    "error_launch_url": "Unable to open the website. Please try again later."
-  }
-  
+  "wellcome_back": "Welcome back",
+  "wellcome_home": "Welcome",
+
+  "title_name": "David Education",
+
+  "vision_purpose": "Vision and Mission",
+
+  "wellcome_title": "Welcome dear parents and students to the sports academy",
+
+  "wellcome_content_1_1": "As technology advances, people procrastinate more, move less, and have fewer meaningful connections with themselves and others around them.",
+  "wellcome_content_1_2": "procrastinate, move less",
+  "wellcome_content_1_3": "fewer meaningful connections",
+
+  "wellcome_content_2_1": "For that reason, David Education Academy was created with the mission of providing a space for the younger generation to improve their health, build character, and nurture wholesome dreams. David will be like a second home for children after school, allowing them to have a meaningful childhood and develop holistically in body, mind, and spirit.",
+  "wellcome_content_2_2": "improve health, build character, and nurture wholesome dreams",
+  "wellcome_content_2_3": "body, mind, and spirit",
+
+  "wellcome_content_3_1": "Our vision is to become Vietnam's leading badminton academy for children, pioneering the Mindful Badminton model - Training Skills, Building Character.",
+  "wellcome_content_3_2": "Vietnam's leading badminton academy for children",
+
+  "wellcome_content_4_1": "Thank you, dear parents and students, for trusting and accompanying David Education in realizing this vision.",
+
+  "collection_img": "Album",
+
+  "navigate_home": "Go to homepage",
+
+  "study_process": "Learning process",
+
+  "hint_search": "Search",
+  "save_rollcall": "Save attendance",
+  "title": "Title",
+
+  "title_video": "Video title",
+  "title_note": "Comment title",
+
+  "in_class": "Present in class",
+  "out_class": "Absent from class",
+
+  "in_rollcall": "Attendance saved",
+  "out_rollcall": "Attendance not saved",
+
+  "tap_change_phone": "Tap to change phone number",
+  "tap_change_email": "Tap to change email",
+
+  "today": "Today",
+  "yesterday": "Yesterday",
+  "created": "Created",
+
+  "month": "Month",
+  "week": "Week",
+
+  "this_month": "Current month",
+  "another_month": "Other months",
+
+  "month_1": "Jan",
+  "month_2": "Feb",
+  "month_3": "Mar",
+  "month_4": "Apr",
+  "month_5": "May",
+  "month_6": "Jun",
+  "month_7": "Jul",
+  "month_8": "Aug",
+  "month_9": "Sep",
+  "month_10": "Oct",
+  "month_11": "Nov",
+  "month_12": "Dec",
+
+  "seemore": "See more",
+
+  "setting_notify": "Notification settings",
+  "setting_language": "Language settings",
+  "setting_policy": "Privacy policy",
+  "setting_change_password": "Change password",
+  "setting_history_rollcall": "Attendance history",
+  "setting_update_birthday": "Update birthday",
+
+  "warning_logout": "Are you sure you want to log out?",
+  "warning_tokenout": "Your session has expired, please log in again",
+
+  "confirm_info": "Confirm information",
+
+  "you_rollcall_atday": "Marked attendance on",
+  "you_rollcall_attime": "At",
+
+  "update_phone": "Update phone number",
+  "update_email": "Update email",
+  "update_password": "Update password",
+
+  "learningprocess_title": "Comment for",
+  "learningprocess_comment": "Comment",
+  "learningprocess_url": "Add video link (YouTube Link)",
+  "learningprocess_publish": "Publish",
+  "learningprocess_save": "Save comment",
+  "learningprocess_success": "Comment saved successfully",
+  "learningprocess_error": "Failed to save comment",
+  "learningprocess_newest": "Latest comment",
+  "learningprocess_video": "Videos commented for you",
+
+  "rollcall": "Attendance",
+  "rollcall_success": "You have marked attendance today",
+  "rollcall_fail": "You have not marked attendance today",
+  "rollcall_loading": "Please wait as we verify your attendance",
+  "rollcall_check_save": "Do you want to save the list to the system?",
+  "rollcall_student": "Student attendance",
+  "lessonPlan": "Lesson",
+  "rollcall_coach": "View coach attendance",
+  "rollcall_check_save_local": "Currently offline, the list will be saved locally. You can try again when connected.",
+
+  "select_language": "Please select a language",
+  "select_input_auth": "Please enter the required information for us to verify you",
+  "select_input_newpass": "Please enter your new password",
+
+  "summary_tuitions": "Total tuition paid",
+  "summary_months": "Total months attended",
+  "summary_thismonth": "This month's total",
+  "summary_see_option": "See your tuition summary",
+  "statistic_tuitions": "Tuition summary",
+  "statistic_tuitions_history": "Payment history",
+
+  "empty_list": "Empty list",
+  "empty_sublist": "No items in the list",
+
+  "sort_list": "Sort list",
+  "sort_all": "All",
+  "sort_newest": "Newest",
+  "sort_oldest": "Oldest",
+
+  "success_update": "Update successful",
+  "success_login": "Login successful",
+  "success_save": "Save successful",
+
+  "email_old": "Old email",
+  "email_new": "New email",
+
+  "phone_old": "Old phone number",
+  "phone_new": "New phone number",
+
+  "error_login": "An error occurred while trying to log you in. Please try again later.",
+  "error_emailpass": "Incorrect login information. Please check again.",
+  "error_rollcall": "Attendance failed. Please try again.",
+  "error_rollcall_notatwork": "You are not at the location we marked. Please try again after arriving.",
+  "error_data": "Data retrieval error. Please try again later.",
+  "error_update": "Update failed. Please try again later.",
+  "error_timeout": "Timeout occurred. Please try again.",
+  "error_retry_failed": "An error occurred while trying to add data. Please try again later.",
+  "error_phone_type": "Invalid phone number. Please re-enter.",
+  "error_email_type": "Invalid email. Please re-enter.",
+  "error_notsame_password": "Passwords must match.",
+  "error_weak_password": "Weak password. Please ensure the password has at least 8 characters, including uppercase, lowercase, numbers, and special characters.",
+  "error_empty_inputlp": "Comment cannot be empty.",
+  "error_connect_lost": "No network connection detected. Please try again when connected.",
+  "error_dublicate_phone": "Phone number already registered. Please use another number.",
+  "error_dublicate_email": "Email already registered. Please use another email.",
+  "error_launch_url": "Unable to open the website. Please try again later."
+}

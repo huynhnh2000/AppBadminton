@@ -21,12 +21,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: "assets/.env");
   tz.initializeTimeZones();
   LicenseRegistry.addLicense(() async* {
-    final license = await rootBundle.loadString('google_fonts/Roboto/LICENSE.txt');
+    final license =
+        await rootBundle.loadString('google_fonts/Roboto/LICENSE.txt');
     yield LicenseEntryWithLineBreaks(['google_fonts'], license);
   });
 
@@ -43,7 +44,7 @@ class MyHttpOverrides extends HttpOverrides {
   }
 }
 
-class MainApp extends StatefulWidget{
+class MainApp extends StatefulWidget {
   MainApp({super.key});
 
   @override
@@ -51,7 +52,6 @@ class MainApp extends StatefulWidget{
 }
 
 class MainAppState extends State<MainApp> {
-
   late FlutterLocalization localization;
 
   Locale _locale = const Locale('vi', 'VN');
@@ -64,37 +64,38 @@ class MainAppState extends State<MainApp> {
 
   @override
   void didChangeDependencies() {
-    
     super.didChangeDependencies();
   }
 
   @override
   Widget build(BuildContext context) {
-
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context)=>ListStudentProvider()),
-        ChangeNotifierProvider(create: (context)=>ListRollcallcoachProvider()),
-        ChangeNotifierProvider(create: (context)=>ListRollcallStudentProvider()),
-        ChangeNotifierProvider(create: (context)=>ListLearningprocessProvider()),
-        ChangeNotifierProvider(create: (context)=>ListTuitionsProvider()),
-        ChangeNotifierProvider(create: (context)=>ListCoachProvider()),
+        ChangeNotifierProvider(create: (context) => ListStudentProvider()),
+        ChangeNotifierProvider(
+            create: (context) => ListRollcallcoachProvider()),
+        ChangeNotifierProvider(
+            create: (context) => ListRollcallStudentProvider()),
+        ChangeNotifierProvider(
+            create: (context) => ListLearningprocessProvider()),
+        ChangeNotifierProvider(create: (context) => ListTuitionsProvider()),
+        ChangeNotifierProvider(create: (context) => ListCoachProvider()),
       ],
       child: MaterialApp(
-        locale: _locale,
-          supportedLocales: const [Locale('en', 'US'), Locale('vi', 'VN')], 
+          debugShowCheckedModeBanner: false,
+          locale: _locale,
+          supportedLocales: const [Locale('en', 'US'), Locale('vi', 'VN')],
           localizationsDelegates: const [
-            AppLocalizationsDelegate(), 
+            AppLocalizationsDelegate(),
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
           theme: ThemeData(
-            textTheme: GoogleFonts.robotoTextTheme(),
-            colorScheme: ColorScheme.fromSeed(seedColor: AppColors.pageBackground)
-          ),
-        home: FirstView()
-      ),
+              textTheme: GoogleFonts.robotoTextTheme(),
+              colorScheme:
+                  ColorScheme.fromSeed(seedColor: AppColors.pageBackground)),
+          home: FirstView()),
     );
   }
 }

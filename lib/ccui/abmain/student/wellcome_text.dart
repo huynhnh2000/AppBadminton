@@ -1,4 +1,3 @@
-
 import 'package:badminton_management_1/app_local.dart';
 import 'package:badminton_management_1/ccui/ccresource/app_colors.dart';
 import 'package:badminton_management_1/ccui/ccresource/app_textstyle.dart';
@@ -6,12 +5,11 @@ import 'package:flutter/material.dart';
 
 List<String> splitContentByKeywords(String text, List<String> keywords) {
   List<String> result = [text];
-    
+
   for (String keyword in keywords) {
     List<String> temp = [];
-      
-    for (String part in result) {
 
+    for (String part in result) {
       // If contain keyword then split it
       if (part.contains(keyword)) {
         List<String> splitParts = part.split(keyword);
@@ -20,15 +18,14 @@ List<String> splitContentByKeywords(String text, List<String> keywords) {
           temp.add(splitParts[i]);
           if (i < splitParts.length - 1) temp.add(keyword);
         }
-      } 
-      else {
+      } else {
         temp.add(part);
       }
     }
-      
+
     result = temp;
   }
-    
+
   return result;
 }
 
@@ -42,7 +39,8 @@ Widget firstParagraph(BuildContext context) {
         ),
         TextSpan(
           text: AppLocalizations.of(context).translate("title_name"),
-          style: AppTextstyle.subTitleStyle.copyWith(fontWeight: FontWeight.bold, wordSpacing: 5),
+          style: AppTextstyle.subTitleStyle
+              .copyWith(fontWeight: FontWeight.bold, wordSpacing: 5),
         ),
         TextSpan(
           text: ".",
@@ -55,10 +53,11 @@ Widget firstParagraph(BuildContext context) {
 
 Widget secondParagraph(BuildContext context) {
   List<InlineSpan> lstStyle = [];
-  String content = AppLocalizations.of(context).translate("wellcome_content_1_1");
+  String content =
+      AppLocalizations.of(context).translate("wellcome_content_1_1");
   List<String> keywords = [
     AppLocalizations.of(context).translate("wellcome_content_1_2"),
-    AppLocalizations.of(context).translate("wellcome_content_1_3")
+    AppLocalizations.of(context).translate("wellcome_content_1_3"),
   ];
 
   List<String> lstString3 = splitContentByKeywords(content, keywords);
@@ -68,7 +67,8 @@ Widget secondParagraph(BuildContext context) {
       lstStyle.add(
         TextSpan(
           text: text,
-          style: AppTextstyle.subTitleStyle.copyWith(fontWeight: FontWeight.bold, wordSpacing: 5),
+          style: AppTextstyle.subTitleStyle
+              .copyWith(fontWeight: FontWeight.bold, wordSpacing: 5),
         ),
       );
     } else {
@@ -96,7 +96,8 @@ Widget secondParagraph(BuildContext context) {
 
 Widget thirdParagraph(BuildContext context) {
   List<InlineSpan> lstStyle = [];
-  String content = AppLocalizations.of(context).translate("wellcome_content_2_1");
+  String content =
+      AppLocalizations.of(context).translate("wellcome_content_2_1");
   List<String> keywords = [
     AppLocalizations.of(context).translate("wellcome_content_2_2"),
     AppLocalizations.of(context).translate("wellcome_content_2_3")
@@ -109,14 +110,18 @@ Widget thirdParagraph(BuildContext context) {
       lstStyle.add(
         TextSpan(
           text: text,
-          style: AppTextstyle.subTitleStyle.copyWith(fontWeight: FontWeight.bold, color: AppColors.primary, wordSpacing: 5),
+          style: AppTextstyle.subTitleStyle.copyWith(
+              fontWeight: FontWeight.bold,
+              color: AppColors.primary,
+              wordSpacing: 5),
         ),
       );
     } else if (text == keywords[1]) {
       lstStyle.add(
         TextSpan(
           text: text,
-          style: AppTextstyle.subTitleStyle.copyWith(fontWeight: FontWeight.bold, wordSpacing: 5),
+          style: AppTextstyle.subTitleStyle
+              .copyWith(fontWeight: FontWeight.bold, wordSpacing: 5),
         ),
       );
     } else {
@@ -144,7 +149,8 @@ Widget thirdParagraph(BuildContext context) {
 
 Widget fourthParagraph(BuildContext context) {
   List<InlineSpan> lstStyle = [];
-  String content = AppLocalizations.of(context).translate("wellcome_content_3_1");
+  String content =
+      AppLocalizations.of(context).translate("wellcome_content_3_1");
   List<String> keywords = [
     AppLocalizations.of(context).translate("wellcome_content_3_2"),
   ];
@@ -156,7 +162,8 @@ Widget fourthParagraph(BuildContext context) {
       lstStyle.add(
         TextSpan(
           text: text,
-          style: AppTextstyle.subTitleStyle.copyWith(fontWeight: FontWeight.bold, wordSpacing: 5),
+          style: AppTextstyle.subTitleStyle
+              .copyWith(fontWeight: FontWeight.bold, wordSpacing: 5),
         ),
       );
     } else {
@@ -184,7 +191,8 @@ Widget fourthParagraph(BuildContext context) {
 
 Widget fifthParagraph(BuildContext context) {
   List<InlineSpan> lstStyle = [];
-  String content = AppLocalizations.of(context).translate("wellcome_content_4_1");
+  String content =
+      AppLocalizations.of(context).translate("wellcome_content_4_1");
 
   lstStyle.add(
     TextSpan(

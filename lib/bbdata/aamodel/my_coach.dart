@@ -1,33 +1,42 @@
-class MyCoach{
-  String? id, email, password, coachName, image, gender, phone, birthday, startDay;
+class MyCoach {
+  String? id,
+      email,
+      password,
+      coachName,
+      lessonPlan,
+      image,
+      gender,
+      phone,
+      birthday,
+      startDay;
   String? code, tuitions, userTypeId;
   String? imageAssets;
   String? isCheck, statusId;
 
-  MyCoach({
-    this.id,
-    this.email,
-    this.password,
-    this.coachName,
-    this.image,
-    this.gender,
-    this.imageAssets,
-    this.phone,
-    this.birthday,
-    this.startDay,
-    this.code,
-    this.tuitions,
-    this.userTypeId,
-    this.isCheck,
-    this.statusId
-  });
+  MyCoach(
+      {this.id,
+      this.email,
+      this.password,
+      this.coachName,
+      this.lessonPlan,
+      this.image,
+      this.gender,
+      this.imageAssets,
+      this.phone,
+      this.birthday,
+      this.startDay,
+      this.code,
+      this.tuitions,
+      this.userTypeId,
+      this.isCheck,
+      this.statusId});
 
-  MyCoach.fromJson(Map<dynamic, dynamic> e){
-    
+  MyCoach.fromJson(Map<dynamic, dynamic> e) {
     id = e["coachId"].toString();
     email = e["email"].toString();
     password = e["password"].toString();
     coachName = e["coachName"].toString();
+    lessonPlan = e["lessonPlan"].toString();
     image = e["images"].toString();
     gender = e["genderId"].toString();
     phone = e["phone"].toString();
