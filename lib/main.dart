@@ -30,8 +30,11 @@ void main() async {
         await rootBundle.loadString('google_fonts/Roboto/LICENSE.txt');
     yield LicenseEntryWithLineBreaks(['google_fonts'], license);
   });
-
+  // await FCMController().initToState().catchError((error) {
+  //   print("Error initializing FCMController: $error");
+  // });
   HttpOverrides.global = MyHttpOverrides();
+
   runApp(MainApp());
 }
 

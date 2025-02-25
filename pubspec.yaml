@@ -35,6 +35,12 @@ dependencies:
   webview_flutter: ^4.10.0
   youtube_explode_dart: ^2.3.5
   youtube_player_flutter: ^9.1.1
+  firebase_cloud_messaging_flutter: ^1.0.3
+  get: ^4.7.2
+  flutter_local_notifications: ^18.0.1
+  get_controller_plus: ^0.2.1
+  device_info_plus: ^9.1.2
+  firebase_messaging: ^15.2.3
 
 dev_dependencies:
   flutter_test:
